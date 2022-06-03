@@ -4,21 +4,20 @@ public class RandomsIterator implements Iterator<Integer> {
 
     private final int min;
     private final int max;
-    private int current;
 
     public RandomsIterator(Randoms randoms) {
         this.min = randoms.getMin();
         this.max = randoms.getMax();
-        this.current = min;
     }
 
     @Override
     public boolean hasNext() {
-        return current <= max;
+        return true;
     }
 
     @Override
     public Integer next() {
-        return current++;
+        int resultMax = max - min;
+        return (int) (Math.random() * ++resultMax) + min;
     }
 }
